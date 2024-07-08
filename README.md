@@ -1,4 +1,4 @@
-# docker-cordova-android
+# rhinolance/cordova-android
 This docker image is intented as a CI container for building Cordova Android projects.
 
 ## Versioning
