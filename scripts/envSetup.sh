@@ -53,7 +53,7 @@ java -version
 ###################################
 # install Android SDK
 ###################################
-apt-get install -y curl maven gradle
+apt-get install -y wget curl maven gradle
 
 # install Android SDK tools if necessary
 if [ ! -d "${ANDROID_HOME}" ]
