@@ -1,24 +1,28 @@
-###################################
-# Set install versions
-###################################
-export INSTALL_JDK_VERSION=17
-export INSTALL_ANDROID_SDK_VERSION=34.0.0
-export INSTALL_ANDROID_TOOLS_VERSION=11076708 # from https://developer.android.com/studio#command-line-tools-only
-export INSTALL_NODE_VERSION=20
+# if an varsAreSet arg is not passed, then set the vars
+if [ -z "$varsAreSet" ]
+then
+        ###################################
+        # Set install versions
+        ###################################
+        export INSTALL_JDK_VERSION=17
+        export INSTALL_ANDROID_SDK_VERSION=34.0.0
+        export INSTALL_ANDROID_TOOLS_VERSION=11076708 # from https://developer.android.com/studio#command-line-tools-only
+        export INSTALL_NODE_VERSION=20
 
-###################################
-# Set environment variables
-###################################
-export WORKSPACE=/workspace
+        ###################################
+        # Set environment variables
+        ###################################
+        export WORKSPACE=/workspace
 
-export JAVA_HOME=/usr/lib/jvm/java-${INSTALL_JDK_VERSION}-openjdk-amd64
-export ANDROID_HOME="${WORKSPACE}/android-sdk" >> /etc/profile
+        export JAVA_HOME=/usr/lib/jvm/java-${INSTALL_JDK_VERSION}-openjdk-amd64
+        export ANDROID_HOME="${WORKSPACE}/android-sdk" >> /etc/profile
+        export ANDROID_SDK_ROOT="${ANDROID_HOME}"
+        export ANDROID_TOOLS="${ANDROID_HOME}/cmdline-tools/bin"
+        export CORDOVA_PATH="${WORKSPACE}/node_modules/cordova/bin"
+        export PATH="${PATH}:${ANDROID_TOOLS}:${CORDOVA_PATH}"
+fi
+
 export ANDROID_SDK_MAJOR_VERSION=$(echo $INSTALL_ANDROID_SDK_VERSION | sed 's/\..*//')
-export ANDROID_SDK_ROOT="${ANDROID_HOME}"
-export ANDROID_TOOLS="${ANDROID_HOME}/cmdline-tools/bin"
-export CORDOVA_PATH="${WORKSPACE}/node_modules/cordova/bin"
-export PATH="${PATH}:${ANDROID_TOOLS}:${CORDOVA_PATH}"
-
 export DEBIAN_FRONTEND=noninteractive #stop apt-get from asking questions
 
 mkdir -p $WORKSPACE
