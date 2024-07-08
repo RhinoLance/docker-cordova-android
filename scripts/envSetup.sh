@@ -19,7 +19,7 @@ export ANDROID_TOOLS="${ANDROID_HOME}/cmdline-tools/bin"
 export CORDOVA_PATH="${WORKSPACE}/node_modules/cordova/bin"
 export PATH="${PATH}:${ANDROID_TOOLS}:${CORDOVA_PATH}"
 
-export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive #stop apt-get from asking questions
 
 mkdir -p $WORKSPACE
 
@@ -36,7 +36,7 @@ java -version
 ###################################
 # install Android SDK
 ###################################
-apt-get install -y wget curl maven gradle
+apt-get install -y curl maven gradle
 
 # install Android SDK tools if necessary
 if [ ! -d "${ANDROID_HOME}" ]
@@ -60,5 +60,3 @@ yes | sdkmanager --sdk_root=${ANDROID_HOME} "platforms;android-${ANDROID_SDK_MAJ
 ###################################
 apt-get install -y nodejs npm
 node -v && npm -v
-
-
