@@ -22,6 +22,19 @@ then
         export PATH="${PATH}:${ANDROID_TOOLS}:${CORDOVA_PATH}"
 fi
 
+# echo all of the environment variables
+echo "INSTALL_JDK_VERSION: ${INSTALL_JDK_VERSION}"
+echo "INSTALL_ANDROID_SDK_VERSION: ${INSTALL_ANDROID_SDK_VERSION}"
+echo "INSTALL_ANDROID_TOOLS_VERSION: ${INSTALL_ANDROID_TOOLS_VERSION}"
+echo "INSTALL_NODE_VERSION: ${INSTALL_NODE_VERSION}"
+echo "WORKSPACE: ${WORKSPACE}"
+echo "JAVA_HOME: ${JAVA_HOME}"
+echo "ANDROID_HOME: ${ANDROID_HOME}"
+echo "ANDROID_SDK_ROOT: ${ANDROID_SDK_ROOT}"
+echo "ANDROID_TOOLS: ${ANDROID_TOOLS}"
+echo "CORDOVA_PATH: ${CORDOVA_PATH}"
+echo "PATH: ${PATH}"
+
 export ANDROID_SDK_MAJOR_VERSION=$(echo $INSTALL_ANDROID_SDK_VERSION | sed 's/\..*//')
 export DEBIAN_FRONTEND=noninteractive #stop apt-get from asking questions
 
@@ -64,3 +77,8 @@ yes | sdkmanager --sdk_root=${ANDROID_HOME} "platforms;android-${ANDROID_SDK_MAJ
 ###################################
 apt-get install -y nodejs npm
 node -v && npm -v
+
+###################################
+# install additional tools
+###################################
+apt-get install -y vim
