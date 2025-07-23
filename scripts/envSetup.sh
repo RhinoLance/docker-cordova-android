@@ -5,7 +5,7 @@ then
         # Set install versions
         ###################################
         export INSTALL_JDK_VERSION=17
-        export INSTALL_ANDROID_SDK_VERSION=34.0.0
+        export INSTALL_ANDROID_SDK_VERSION=35.0.0
         export INSTALL_ANDROID_TOOLS_VERSION=11076708 # from https://developer.android.com/studio#command-line-tools-only
         export INSTALL_NODE_VERSION=20
 

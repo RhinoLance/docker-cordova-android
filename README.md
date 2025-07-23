@@ -11,7 +11,26 @@ i.e.
 I welcome pull requests where core changes are required.  Please ensure that 
 scripts/cordovaTest.sh runs cleanly before submitting anything.
 
+### Update commands
+After the Dockerfile or envSetup.sh have been updated, the following should be 
+executed from folder containing the Dockerfile:
+
+- docker build . -t \<GitHub-username\>/cordova-android:latest -t \<GitHub-username\>/cordova-android:\<version\>
+
+and if publishing:
+- docker push \<GitHub-username\>/cordova-android:latest
+- docker push \<GitHub-username\>/cordova-android:\<version\>
+
 ## Version history
+
+### 14.0.*
+
+- JDK: 17
+- Android SDK: 35
+- Android command line tools: 12.0
+- NodeJs: 18.19.1
+- npm: 9.2.0
+
 ### 13.0.*
 
 - JDK: 17
@@ -25,3 +44,4 @@ scripts/cordovaTest.sh runs cleanly before submitting anything.
 often to be practical, and is quick enough to install as part of your build 
 process.  As most CI pipelines will cache your node_modules folder, just install 
 it locally (not -g), and call it with `ngx cordova ...`.
+
