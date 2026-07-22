@@ -11,17 +11,19 @@ i.e.
 I welcome pull requests where core changes are required.  Please ensure that 
 scripts/cordovaTest.sh runs cleanly before submitting anything.
 
-### Update commands
-After the Dockerfile or envSetup.sh have been updated, the following should be 
-executed from folder containing the Dockerfile:
-
-- docker build . -t \<GitHub-username\>/cordova-android:latest -t \<GitHub-username\>/cordova-android:\<version\>
-
-and if publishing:
-- docker push \<GitHub-username\>/cordova-android:latest
-- docker push \<GitHub-username\>/cordova-android:\<version\>
+### Updates to installed packages
+When updates to cordova-android/Node/NPM etc. are required, please refer to 
+[update-process.md](docs/update-process.md).
 
 ## Version history
+
+### 15.0.*
+
+- JDK: 17
+- Android SDK: 36
+- Android command line tools: 12.0
+- NodeJs: 26.5.0
+- npm: 11.17.0
 
 ### 14.0.*
 
